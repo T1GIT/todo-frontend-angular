@@ -1,0 +1,109 @@
+<form (submit)="register(); $event.preventDefault()">
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput required
+           name="email"
+           placeholder="pat@example.com"
+           [formControl]="email">
+    <mat-error *ngIf="email.errors?.required">Email is required</mat-error>
+    <mat-error *ngIf="email.errors?.email">Email is incorrect</mat-error>
+    <mat-error *ngIf="email.errors?.exists">Email already exists</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Password</mat-label>
+    <input matInput required
+           name="password"
+           placeholder="Pj#92)9+jieiJIfn28"
+           [formControl]="psw"
+           [type]="isPswHidden ? 'password' : 'text'">
+    <button mat-icon-button matSuffix (click)="isPswHidden = !isPswHidden">
+      <mat-icon>{{isPswHidden ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+    <mat-error *ngIf="psw.errors?.required">Password is required</mat-error>
+    <mat-error *ngIf="!!psw.errors?.minlength">Password must contain at
+      least {{ psw.errors?.minlength?.requiredLength }}
+      symbols
+    </mat-error>
+    <mat-error *ngIf="!!psw.errors?.maxlength">Password must contain no more
+      than {{ psw.errors?.maxlength?.requiredLength }} symbols
+    </mat-error>
+    <mat-error *ngIf="psw.errors?.alphaAbsent">Password must contain alpha</mat-error>
+    <mat-error *ngIf="psw.errors?.numberAbsent">Password must contain number</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Password</mat-label>
+    <input matInput required
+           name="password"
+           placeholder="Pj#92)9+jieiJIfn28"
+           [formControl]="rePsw"
+           [type]="isPswHidden ? 'password' : 'text'">
+    <button mat-icon-button matSuffix (click)="isPswHidden = !isPswHidden">
+      <mat-icon>{{isPswHidden ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+    <mat-error *ngIf="rePsw.errors?.required">Repeat password is required</mat-error>
+    <mat-error *ngIf="rePsw.errors?.mismatch">Passwords are mismatched</mat-error>
+  </mat-form-field>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon>info</mat-icon>
+      </mat-panel-title>
+      <mat-panel-description>
+        Additional info
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-form-field appearance="legacy">
+      <mat-label>Name</mat-label>
+      <input matInput
+             name="name"
+             placeholder="Ivan"
+             [formControl]="name">
+      <mat-error *ngIf="!!name.errors?.maxlength">Name can't be longer than {{ name.errors?.maxlength?.requiredLength }}
+        symbols
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Surname</mat-label>
+      <input matInput
+             placeholder="Ivanov"
+             [formControl]="surname">
+      <mat-error *ngIf="!!surname.errors?.maxlength">Surname can't be longer
+        than {{ surname.errors?.maxlength?.requiredLength }} symbols
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Patronymic</mat-label>
+      <input matInput
+             placeholder="Ivanovich"
+             [formControl]="patronymic">
+      <mat-error *ngIf="!!patronymic.errors?.maxlength">Patronymic can't be longer
+        than {{ patronymic.errors?.maxlength?.requiredLength }} symbols
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Birthdate</mat-label>
+      <input matInput
+             placeholder="31.12.1970"
+             [max]="birthdateMax"
+             [formControl]="birthdate"
+             [matDatepicker]="picker">
+      <mat-error *ngIf="!!birthdate.errors?.matDatepickerMax">Are you a time traveler?</mat-error>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </mat-expansion-panel>
+
+
+  <button
+    type="submit"
+    mat-button color="primary"
+    [disabled]="!isValid()"
+  >Register
+  </button>
+</form>

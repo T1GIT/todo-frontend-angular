@@ -1,0 +1,36 @@
+<form (submit)="login(); $event.preventDefault()">
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput required
+           placeholder="pat@example.com"
+           [formControl]="email">
+    <mat-error *ngIf="email.errors?.required">Email is required</mat-error>
+    <mat-error *ngIf="email.errors?.email">Email is incorrect</mat-error>
+    <mat-error *ngIf="email.errors?.notFound">Email not found</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Password</mat-label>
+    <input matInput required
+           placeholder="Pj#92)9+jieiJIfn28"
+           [formControl]="psw"
+           [type]="isPswHidden ? 'password' : 'text'">
+    <button mat-icon-button matSuffix (click)="isPswHidden = !isPswHidden">
+      <mat-icon>{{isPswHidden ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+    <mat-error *ngIf="psw.errors?.required">Password is required</mat-error>
+    <mat-error *ngIf="!!psw.errors?.minlength">Password must contain at
+      least {{ psw.errors?.minlength?.requiredLength }} symbols
+    </mat-error>
+    <mat-error *ngIf="!!psw.errors?.maxlength">Password must contain no more
+      than {{ psw.errors?.maxlength?.requiredLength }} symbols
+    </mat-error>
+    <mat-error *ngIf="psw.errors?.alphaAbsent">Password must contain alpha</mat-error>
+    <mat-error *ngIf="psw.errors?.numberAbsent">Password must contain number</mat-error>
+  </mat-form-field>
+  <button
+    type="submit"
+    mat-button color="primary"
+    [disabled]="!isValid()"
+  >Login
+  </button>
+</form>

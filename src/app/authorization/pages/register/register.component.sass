@@ -1,0 +1,17 @@
+@use '../../shared/mixins'
+
+
+@include mixins.form
+
+
+form
+  mat-form-field
+    mat-datepicker
+      bottom: 35px
+    input:-webkit-autofill
+      background: transparent !important
+  mat-expansion-panel
+    mat-form-field
+      margin: 5px
+  button[mat-button]
+    margin-top: 20px

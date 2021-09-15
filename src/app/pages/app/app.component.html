@@ -1,0 +1,9 @@
+<mat-toolbar color="primary">
+  <span>TODO</span>
+  <span class="spacer"></span>
+  <button mat-icon-button *ngIf="authService.isAuthorized$ | async">
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
+<app-profile  *ngIf="authService.isAuthorized$ | async"></app-profile>
+<router-outlet></router-outlet>
