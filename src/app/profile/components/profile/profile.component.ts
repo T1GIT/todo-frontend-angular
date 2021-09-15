@@ -4,6 +4,7 @@ import { AuthService } from "../../../core/auth/auth.service"
 import { Observable } from "rxjs"
 import { User } from "../../shared/models/user"
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',

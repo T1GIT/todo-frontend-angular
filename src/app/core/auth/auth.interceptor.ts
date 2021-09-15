@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core"
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http"
 import { Observable, of } from "rxjs"
-import { map, mergeAll, tap, withLatestFrom } from "rxjs/operators"
+import { map, mergeAll, withLatestFrom } from "rxjs/operators"
 import { AuthService } from "./auth.service"
 
 
@@ -10,7 +10,8 @@ export class AuthInterceptor implements HttpInterceptor {
 
   constructor(
     private authService: AuthService
-  ) {}
+  ) {
+  }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return of(req)

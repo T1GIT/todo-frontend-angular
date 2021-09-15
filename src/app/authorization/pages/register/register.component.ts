@@ -1,11 +1,9 @@
-import { Component, OnInit } from '@angular/core'
-import { AbstractControl, FormControl, ValidationErrors, ValidatorFn, Validators } from "@angular/forms"
+import { Component } from '@angular/core'
+import { FormControl, Validators } from "@angular/forms"
 import { AuthService } from "../../../core/auth/auth.service"
 import * as _ from "lodash"
-import { catchError, throttleTime } from "rxjs/operators"
-import { BehaviorSubject } from "rxjs"
+import { throttleTime } from "rxjs/operators"
 import { pswValidator, rePswValidator } from "../../shared/validators"
-import { add } from "lodash"
 
 
 @Component({

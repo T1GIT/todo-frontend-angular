@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, CanDeactivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router'
+import { Injectable } from '@angular/core'
+import { ActivatedRouteSnapshot, CanDeactivate, Router, RouterStateSnapshot } from '@angular/router'
 import { Observable, of } from 'rxjs'
 import { AuthService } from "./auth.service"
 import { map, tap, withLatestFrom } from "rxjs/operators"
 import { AuthorizationComponent } from "../../authorization/pages/authorization/authorization.component"
+
 
 @Injectable()
 export class AuthGuard implements CanDeactivate<unknown> {
@@ -11,7 +12,9 @@ export class AuthGuard implements CanDeactivate<unknown> {
   constructor(
     private authService: AuthService,
     private router: Router
-  ) {}
+  ) {
+  }
+
   //
   // canActivate(
   //   route: ActivatedRouteSnapshot,
@@ -45,7 +48,7 @@ export class AuthGuard implements CanDeactivate<unknown> {
           else
             return route.component !== AuthorizationComponent
         }),
-        tap(console.log),
+        tap(console.log)
       )
   }
 }

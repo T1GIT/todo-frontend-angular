@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@angular/core'
 import { HttpClient } from "@angular/common/http"
-import { BehaviorSubject, interval, merge, Observable, pipe, Subject, Subscription, timer } from "rxjs"
+import { BehaviorSubject, Observable, Subject, Subscription, timer } from "rxjs"
 import { map, mergeAll, tap } from "rxjs/operators"
 import { load } from "@fingerprintjs/fingerprintjs"
 import jwtDecode from "jwt-decode"

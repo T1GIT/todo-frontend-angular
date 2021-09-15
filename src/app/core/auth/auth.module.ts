@@ -2,7 +2,6 @@ import { InjectionToken, ModuleWithProviders, NgModule } from '@angular/core'
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http"
 import { AuthService } from "./auth.service"
 import { AuthInterceptor } from "./auth.interceptor"
-import { AuthGuard } from "./auth.guard"
 
 
 export const AUTH_CONFIG = new InjectionToken<string>("AUTH_CONFIG")

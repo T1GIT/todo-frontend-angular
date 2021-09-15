@@ -1,4 +1,4 @@
-import { InjectionToken, ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core'
+import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core'
 import { ProfileComponent } from "./components/profile/profile.component"
 import { ProfileService } from "./shared/profile.service"
 import { PROFILE_CONFIG, ProfileConfig } from "./shared/types"

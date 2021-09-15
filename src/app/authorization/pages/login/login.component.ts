@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core'
-import { AbstractControl, FormControl, ValidationErrors, ValidatorFn, Validators } from "@angular/forms"
+import { Component } from '@angular/core'
+import { FormControl, Validators } from "@angular/forms"
 import { AuthService } from "../../../core/auth/auth.service"
-import { catchError } from "rxjs/operators"
 import { pswValidator } from "../../shared/validators"
 
 

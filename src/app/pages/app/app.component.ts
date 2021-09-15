@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { AuthService } from "../../core/auth/auth.service"
 import { Router } from "@angular/router"
-import { map, mergeAll } from "rxjs/operators"
+
 
 @Component({
   selector: 'app-root',
